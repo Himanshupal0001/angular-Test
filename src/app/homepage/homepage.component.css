@@ -1,0 +1,31 @@
+.homepage {
+    height: 95vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table {
+    border: 1px solid;
+    height: 80%;
+    width: 80%;
+    margin: 10px;
+}
+
+.tb-row {
+    background-color: skyblue;
+    height: 20px;
+}
+
+tr>td:nth-child(even) {
+    background-color: lightgreen;
+}
+
+.name-row {
+    cursor: pointer;
+}
+
+.name-row:hover {
+    background-color: lightcoral;
+}

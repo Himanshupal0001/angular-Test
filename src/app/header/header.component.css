@@ -1,0 +1,11 @@
+.header {
+    height: 5vh;
+    background-color: orange;
+    display: flex;
+    align-items: center;
+}
+
+.left {
+    margin-left: 20px;
+    font-size: larger;
+}

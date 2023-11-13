@@ -1,0 +1,12 @@
+.char-details {
+    height: 95vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.container {
+    border: 1px solid;
+    margin-top: 50px;
+    padding: 20px;
+}
