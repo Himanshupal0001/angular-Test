@@ -4,7 +4,31 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
+
+.add-section {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+
+.add-button {
+    padding: 10px 40px;
+    border: none;
+    outline: none;
+    background-color: gainsboro;
+    font-weight: 600;
+}
+
+.add-button:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+
 
 .table {
     border: 1px solid;

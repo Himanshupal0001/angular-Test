@@ -1,0 +1,30 @@
+<div class="dialog-container">
+    <div class="dialog-box">
+        <header class="form-header">
+            <div class="left">Add Character</div>
+            <div class="right" (click)="stateService.showDialog = false">X</div>
+        </header>
+        <hr>
+        <form class="character-form" #templateform="ngForm" (ngSubmit)="onSubmit()">
+            <label for="name"> Character Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter character name" [(ngModel)]="character.name"
+                required>
+            <label for="birth"> Birth</label>
+            <input type="text" id="birth" name="birth" placeholder="Enter Birth" [(ngModel)]="character.birth_year"
+                required>
+            <label for="gender"> Gender</label>
+            <input type="text" id="gender" name="gender" defaultValue="n/a" [(ngModel)]="character.gender"
+                placeholder="Enter Gender">
+            <label for="height"> Height</label>
+            <input type="text" id="height" name="height" placeholder="Enter Height" [(ngModel)]="character.height"
+                required>
+            <label for="icolor">Eye-color</label>
+            <input type="text" id="icolor" name="eye_color" placeholder="Enter Eye-color"
+                [(ngModel)]="character.eye_color" required>
+            <label for="weight"> Weight</label>
+            <input type="text" id="weight" name="weight" placeholder="Enter Weight" [(ngModel)]="character.mass"
+                required>
+            <button type="submit" class="form-btn">Submit</button>
+        </form>
+    </div>
+</div>

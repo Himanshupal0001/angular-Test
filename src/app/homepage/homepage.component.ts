@@ -2,36 +2,36 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService, ApiResult } from '../apiservice.service';
 import { Router } from '@angular/router';
+import { DialogFormComponent } from '../dialog-form/dialog-form.component';
+import { StateServiceService } from '../commonService/state-service.service';
 
 @Component({
   selector: 'app-homepage',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, DialogFormComponent],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css'
 })
 export class HomepageComponent implements OnInit {
   resData: any[] = [];
-  constructor(private apiService: ApiService, private router: Router) { };
-
+  character$ = this.apiService.character$;
+  constructor(private apiService: ApiService, private router: Router, public stateService: StateServiceService) { };
   ngOnInit() {
     this.apiService.getData().subscribe((res: ApiResult) => {
-      this.resData = res.results;
-      console.log(this.resData)
+      this.apiService.updateSubject(res.results);
+      //this.resData = res.results;
+      //console.log(this.resData)
+      console.log(this.character$)
     },
       (error) => {
         console.error(error)
       }
     )
-    //this.onClick(2);
   }
-
-  // onClick(id: number) {
-  //   this.apiService.getPerson(id).subscribe(res => { console.log('res', res) }, (err) => console.log(err));
-  // }
-
-  onNameClick(id: number) {
-    console.log('function cluckd')
-    this.router.navigate(['/character', id])
+  onNameClick(id: string) {
+    //console.log('function clickd')
+    const match = id.match(/\/(\d+)\/$/);
+    const charId = match ? match[1] : null;
+    this.router.navigate(['/character', charId]);
   }
 }

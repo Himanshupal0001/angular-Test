@@ -1,4 +1,8 @@
 <div class="homepage">
+    <div class="add-section">
+        <button class="add-button" (click)="stateService.showDialog = true">Add</button>
+    </div>
+    <app-dialog-form *ngIf="stateService.showDialog"></app-dialog-form>
     <table class="table">
         <tr class="tb-row">
             <th>name</th>
@@ -6,8 +10,8 @@
             <th>gender</th>
             <th>height</th>
         </tr>
-        <tr *ngFor="let item of resData, let i = index">
-            <td class="name-row"><a (click)="onNameClick(i+1)">{{item.name}}</a></td>
+        <tr *ngFor="let item of character$ | async, let i = index">
+            <td class="name-row" (click)="onNameClick(item.url)">{{item.name}}</td>
             <td>{{item.birth_year}}</td>
             <td>{{item.gender}}</td>
             <td>{{item.height}}</td>
